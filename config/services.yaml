@@ -25,3 +25,11 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\DependencyInjection\Jasper:
+        class: App\DependencyInjection\Jasper
+        arguments:
+            - '@filesystem'
+            - '@logger'
+            - '%kernel.project_dir%%env(REPORT_DIR)%'
+            - '%kernel.project_dir%%env(UPLOAD_DIR)%'
